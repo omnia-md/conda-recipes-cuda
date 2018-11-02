@@ -274,6 +274,7 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5,
             cmd.extend(['--label', label])
     else:
         cmd.extend(['--label', 'main'])
+    print(cmd)
 
     err = None
     for i in range(max_retries):
@@ -284,6 +285,9 @@ def upload_to_binstar(m, python, numpy, username, max_retries=5,
         except CalledProcessError as e:
             err = e
             err.cmd = '[not shown]'
+            if 'Distribution already exists' in str(e):
+                max_retries = 0
+                break
             print("Retrying after %s seconds..." % (i+1))
             time.sleep(i+1)
 
