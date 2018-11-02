@@ -13,7 +13,7 @@ source:
 
 extra:
   #upload: betacuda{{ CUDA_SHORT_VERSION }}{{ ",beta" if CUDA_SHORT_VERSION == "92" else ""}}
-  upload: betacuda{{ CUDA_SHORT_VERSION }}{{ ",dev" if CUDA_SHORT_VERSION == "92" else ""}}
+  upload: betacuda{{ CUDA_SHORT_VERSION }}{{ ",dev" if CUDA_SHORT_VERSION == "100" else ""}}
   force_upload: True
 
 build:
