@@ -1,5 +1,5 @@
-* Travis-CI `linux`and `osx` builds [![Travis Build Status](https://travis-ci.org/omnia-md/conda-dev-recipes.svg?branch=master)](https://travis-ci.org/omnia-md/conda-dev-recipes)
-* Appveyor-CI `windows` builds [![Build status](https://ci.appveyor.com/api/projects/status/661g5c1db9hbm8p8?svg=true)](https://ci.appveyor.com/project/jchodera/conda-dev-recipes)
+* Travis-CI `linux`and `osx` builds [![Travis Build Status](https://travis-ci.org/omnia-md/conda-recipes-cuda.svg?branch=master)](https://travis-ci.org/omnia-md/conda-recipes-cuda)
+* Appveyor-CI `windows` builds [![Build status](https://ci.appveyor.com/api/projects/status/661g5c1db9hbm8p8?svg=true)](https://ci.appveyor.com/project/jchodera/conda-recipes-cuda)
 
 omnia-md/conda-dev-recipes
 --------------------------
