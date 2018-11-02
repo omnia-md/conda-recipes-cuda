@@ -7,7 +7,6 @@ set -x
 
 conda config --add channels conda-forge
 conda config --add channels omnia
-conda config --add channels omnia/label/dev
 
 #conda install -yq conda\<=4.3.34
 #conda install -yq conda-build==2.1.17 jinja2 anaconda-client
@@ -39,8 +38,13 @@ conda config --add channels omnia/label/dev
 #for PY_BUILD_VERSION in "27" "35" "36" "37"; do
 
 # Make sure we have the appropriate channel added
-conda config --add channels omnia/label/betacuda${CUDA_SHORT_VERSION};
-conda config --add channels omnia/label/devcuda${CUDA_SHORT_VERSION};
+conda config --add channels omnia/label/cuda${CUDA_SHORT_VERSION};
+conda config --add channels omnia/label/rc;
+conda config --add channels omnia/label/rccuda${CUDA_SHORT_VERSION};
+#conda config --add channels omnia/label/beta;
+#conda config --add channels omnia/label/betacuda${CUDA_SHORT_VERSION};
+#conda config --add channels omnia/label/dev
+#conda config --add channels omnia/label/devcuda${CUDA_SHORT_VERSION};
 
 for PY_BUILD_VERSION in "37" "36" "35" "27" ; do
     /io/conda-build-all -vvv --python $PY_BUILD_VERSION --check-against omnia/label/beta --check-against omnia/label/betacuda${CUDA_SHORT_VERSION} --check-against omnia/label/dev --check-against omnia/label/devcuda${CUDA_SHORT_VERSION} --numpy "1.15" $UPLOAD -- /io/*
