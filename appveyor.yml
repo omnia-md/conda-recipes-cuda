@@ -50,12 +50,12 @@ environment:
       PYTHON_ARCH: "67"
 
 install:
+  - cmd: call build.cmd
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - conda update -yq --all
   - conda install -yq conda==4.3.34 conda-build==2.1.17 jinja2 anaconda-client
   - conda config --add channels omnia
   - conda config --add channels conda-forge
-  - conda config --add channels omnia/label/dev
   - powershell .\\devtools\\appveyor\\missing-headers.ps1
   # conda-build for some inane reason, effectively puts C:\cygwin\bin at the
   # front of the PATH, ahead of everything else, regardless. See
@@ -67,7 +67,7 @@ install:
   # think of to fix this is just to delete the broken one, so that it never gets
   # found by conda-build. Or someone could fix conda-build.
   - "del C:\\cygwin\\bin\\git.exe"
-  - ps: (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/omnia-md/conda-recipes/master/conda-build-all", $env:APPVEYOR_BUILD_FOLDER + "\conda-build-all")
+  #- ps: (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/omnia-md/conda-recipes/master/conda-build-all", $env:APPVEYOR_BUILD_FOLDER + "\conda-build-all")
 
 build: false
 
