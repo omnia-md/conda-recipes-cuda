@@ -13,9 +13,10 @@ dir .
 
 dir "%ProgramFiles%"
 dir "C:\Program Files"
-dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA"
-dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2"
-dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\bin"
+dir "C:\Program Files\NVIDIA Corporation"
+dir "C:\Program Files\NVIDIA Corporation\NVIDIA GPU Computing Toolkit\CUDA"
+dir "C:\Program Files\NVIDIA Corporation\NVIDIA GPU Computing Toolkit\CUDA\v9.2"
+dir "C:\Program Files\NVIDIA Corporation\NVIDIA GPU Computing Toolkit\CUDA\v9.2\bin"
 
 if NOT EXIST "%ProgramFiles%\NVIDIA GPU Computing Toolkit\CUDA\v9.2\bin\cudart64_80.dll" (
 echo "Failed to install CUDA"
