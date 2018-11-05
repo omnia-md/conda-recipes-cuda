@@ -1,5 +1,5 @@
 @echo off
-echo Downloading CUDA toolkit 9.2
+echo Downloading CUDA toolkit 10.0
 appveyor DownloadFile  https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_411.31_windows -FileName cuda_10.0.130_411.31_windows.exe
 
 dir "%ProgramFiles%"
@@ -34,5 +34,7 @@ exit /B 1
 )
 
 set PATH=%ProgramFiles%\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin;%ProgramFiles%\NVIDIA GPU Computing Toolkit\CUDA\v10.0\libnvvp;%PATH%
+set CUDA_VERSION="10.0"
+set CUDA_SHORT_VERSION="100"
 
 nvcc -V
