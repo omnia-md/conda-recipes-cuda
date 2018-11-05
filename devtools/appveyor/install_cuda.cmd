@@ -16,7 +16,7 @@ cuda_10.0.130_411.31_windows.exe -s nvcc_10.0 ^
             curand_dev_10.0 ^
             nvrtc_10.0 ^
             nvrtc_dev_10.0
-            
+
 dir .
 
 dir "%ProgramFiles%"
@@ -25,8 +25,10 @@ dir "C:\Program Files\NVIDIA Corporation"
 dir "C:\Program Files\NVIDIA GPU Computing Toolkit"
 dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA"
 dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0"
+dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin"
+dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\lib"
 
-if NOT EXIST "%ProgramFiles%\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin\cudart64_80.dll" (
+if NOT EXIST "%ProgramFiles%\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin\cudart64_100.dll" (
 echo "Failed to install CUDA"
 exit /B 1
 )
