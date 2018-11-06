@@ -20,6 +20,10 @@ build:
   skip: True # [win]
   detect_binary_files_with_prefix: False
   string: py{{py}}_cuda{{ CUDA_SHORT_VERSION }}_rc_1
+  # Inherit the following environment variables in build.sh call
+  script_env:
+   - CUDA_VERSION
+   - CUDA_SHORT_VERSION
   #features:
   #  - cuda{{ CUDA_SHORT_VERSION }}
 
