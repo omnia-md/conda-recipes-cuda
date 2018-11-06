@@ -50,7 +50,7 @@ requirements:
     # Get clang from conda-forge
     - clangdev ==6.0.0 [linux]
     # Required for sphinx
-    - latexmk
+    - latexmk [not win]
 
   run:
     - python
