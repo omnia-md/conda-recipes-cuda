@@ -47,10 +47,10 @@ environment:
     - PYTHON: "C:\\Miniconda3-x64"
       CONDA_PY: "37"
       PYTHON_VERSION: "3.7.x"
-      PYTHON_ARCH: "67"
+      PYTHON_ARCH: "64"
 
 install:
-  - cmd: call .\\devtools\\appveyor\\install_cuda.cmd
+  - cmd: call .\\devtools\\appveyor\\install_cuda100.cmd
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - conda update -yq --all
   - conda install -yq conda==4.3.34 conda-build==2.1.17 jinja2 anaconda-client
