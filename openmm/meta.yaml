@@ -18,7 +18,6 @@ extra:
 build:
   number: 0
   skip: True # [win]
-  force_upload: True # DEBUG
   detect_binary_files_with_prefix: False
   string: py{{py}}_cuda{{ CUDA_SHORT_VERSION }}_rc_1
   # Inherit the following environment variables in build.sh call
