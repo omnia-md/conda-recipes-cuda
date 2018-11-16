@@ -58,10 +58,13 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     CMAKE_FLAGS+=" -DFFTW_THREADS_LIBRARY=$PREFIX/lib/libfftw3f_threads.dylib"
 fi
 
+env # DEBUG
+
 # Build in subdirectory and install.
 mkdir build
 cd build
 cmake .. $CMAKE_FLAGS
+cat CMakeCache.txt # DEBUG
 make -j$CPU_COUNT all
 
 # PythonInstall uses the gcc/g++ 4.2.1 that anaconda was built with, so we can't add extraneous unrecognized compiler arguments.

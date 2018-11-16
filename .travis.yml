@@ -52,6 +52,7 @@ script:
   - export CHECK_AGAINST="$CHECK_AGAINST --check-against omnia/label/rc --check-against omnia/label/rccuda${CUDA_SHORT_VERSION}"
   #- export CHECK_AGAINST="$CHECK_AGAINST --check-against omnia/label/beta --check-against omnia/label/betacuda${CUDA_SHORT_VERSION}"
   #- export CHECK_AGAISNT="$CHECK_AGAINST --check-against omnia/label/dev --check-against omnia/label/devcuda${CUDA_SHORT_VERSION}"
+  - export CHECK_AGAINST="" # DEBUG
   - if [[ "${TRAVIS_PULL_REQUEST}" == "false" && "${TRAVIS_BRANCH}" == "master" ]]; then
         export UPLOAD="$CHECK_AGAINST --upload omnia";
     else

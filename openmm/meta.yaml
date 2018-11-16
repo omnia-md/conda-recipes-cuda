@@ -7,7 +7,7 @@ source:
   git_tag: 0953742
 
   patches:
-    - silent-cmake.patch
+    #- silent-cmake.patch
     - silent-doxygen.patch
     - silent-latexpdf.patch
 
