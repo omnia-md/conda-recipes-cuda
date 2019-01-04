@@ -27,6 +27,7 @@ dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA"
 dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0"
 dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin"
 dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\lib"
+dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\lib\x64"
 
 if NOT EXIST "%ProgramFiles%\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin\cudart64_100.dll" (
 echo "Failed to install CUDA"
@@ -34,7 +35,7 @@ exit /B 1
 )
 
 set PATH=%ProgramFiles%\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin;%ProgramFiles%\NVIDIA GPU Computing Toolkit\CUDA\v10.0\libnvvp;%PATH%
-set CUDA_VERSION="10.0"
-set CUDA_SHORT_VERSION="100"
+set CUDA_VERSION=10.0
+set CUDA_SHORT_VERSION=100
 
 nvcc -V
