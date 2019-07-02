@@ -1,10 +1,10 @@
 package:
   name: openmm
-  version: 7.3.1
+  version: 7.4.0
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_tag: 4a269c0
+  git_tag: b9a1bee
 
   patches:
     - silent-cmake.patch
@@ -12,14 +12,14 @@ source:
     - silent-latexpdf.patch
 
 extra:
-  upload: rccuda{{ CUDA_SHORT_VERSION }}{{ ",rc" if CUDA_SHORT_VERSION == "92" else ""}}
+  upload: betacuda{{ CUDA_SHORT_VERSION }}{{ ",beta" if CUDA_SHORT_VERSION == "100" else ""}}
   force_upload: False
 
 build:
   number: 1
   skip: True # [win]
   detect_binary_files_with_prefix: False
-  string: py{{py}}_cuda{{ CUDA_SHORT_VERSION }}_rc_2
+  string: py{{py}}_cuda{{ CUDA_SHORT_VERSION }}_beta_1
   # Inherit the following environment variables in build.sh call
   script_env:
    - CUDA_VERSION
