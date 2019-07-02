@@ -51,11 +51,13 @@ requirements:
     - clangdev ==6.0.0 [linux]
     # Required for sphinx
     - latexmk [not win]
+    - cython
 
   run:
     - python
     - fftw3f
     - numpy
+    - cython
 
 #test:
 #  requires:
@@ -69,5 +71,5 @@ requirements:
 
 about:
   home: http://openmm.org
-  license: LGPL and MIT
+  license: MIT
   summary: A high performance toolkit for molecular simulation.
