@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e -x
-export MACOSX_DEPLOYMENT_TARGET="10.9"
+export MACOSX_DEPLOYMENT_TARGET="10.10"
 # Clear existing locks
-rm -rf /usr/local/var/homebrew/locks
+#rm -rf /usr/local/var/homebrew/locks
 # Update homebrew cant disable this yet, -y and --quiet do nothing
-brew update
+#brew update
 
 # Install Miniconda
 curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
@@ -29,11 +29,11 @@ conda clean -tipsy;
 
 
 #export INSTALL_CUDA=`./conda-build-all --dry-run -- openmm`
-export INSTALL_OPENMM_PREREQUISITES=true
+export INSTALL_OPENMM_PREREQUISITES=false
 if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     # Install OpenMM dependencies that can't be installed through
     # conda package manager (doxygen + CUDA)
-    brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/5b680fb58fedfb00cd07a7f69f5a621bb9240f3b/Formula/doxygen.rb
+    #brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/5b680fb58fedfb00cd07a7f69f5a621bb9240f3b/Formula/doxygen.rb
     # Make the nvidia-cache if not there
     mkdir -p $NVIDIA_CACHE
     cd $NVIDIA_CACHE
@@ -53,7 +53,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
 
     # Install latex.
     export PATH="/usr/texbin:${PATH}:/usr/bin"
-    brew cask install --no-quarantine basictex
+    #brew cask install --no-quarantine basictex
     mkdir -p /usr/texbin
     # Path based on https://github.com/caskroom/homebrew-cask/blob/master/Casks/basictex.rb location
     # .../texlive/{YEAR}basic/bin/{ARCH}/{Location of actual binaries}
@@ -70,7 +70,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
         xstring fncychap tabulary capt-of eqparbox environ trimspaces \
         varwidth needspace
     # Clean up brew
-    brew cleanup -s
+    #brew cleanup -s
 fi;
 
 # Build packages
@@ -86,6 +86,7 @@ conda config --add channels omnia/label/betacuda${CUDA_SHORT_VERSION};
 #conda config --add channels omnia/label/devcuda${CUDA_SHORT_VERSION};
 
 #for PY_BUILD_VERSION in "27" "35" "36" "37"; do
-for PY_BUILD_VERSION in "37" "36" "35" "27"; do
-    ./conda-build-all -vvv --python $PY_BUILD_VERSION --check-against omnia/label/beta --check-against omnia/label/betacuda${CUDA_SHORT_VERSION} --check-against omnia/label/dev --check-against omnia/label/devcuda${CUDA_SHORT_VERSION} --numpy "1.15" $UPLOAD -- *
-done
+#for PY_BUILD_VERSION in "37" "36" "35" "27"; do
+#    ./conda-build-all -vvv --python $PY_BUILD_VERSION --check-against omnia --check-against omnia/label/cuda${CUDA_SHORT_VERSION} --check-against omnia/label/beta --check-against omnia/label/betacuda${CUDA_SHORT_VERSION} --numpy "1.15" $UPLOAD -- *
+#done
+./conda-build-all -vvv --python "37,36,35,27" --numpy "1.14,1.15" $UPLOAD -- *
