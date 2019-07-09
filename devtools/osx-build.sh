@@ -11,10 +11,7 @@ export MACOSX_DEPLOYMENT_TARGET="10.9"
 # Clear existing locks
 rm -rf /usr/local/var/homebrew/locks
 # Update homebrew cant disable this yet, -y and --quiet do nothing
-brew update
-# Upgrade brew
-brew upgrade
-brew update
+brew update-reset
 
 # Install Miniconda
 curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
