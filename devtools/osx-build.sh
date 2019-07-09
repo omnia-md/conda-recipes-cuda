@@ -9,9 +9,9 @@ fi
 set -e -x
 export MACOSX_DEPLOYMENT_TARGET="10.9"
 # Clear existing locks
-rm -rf /usr/local/var/homebrew/locks
+#rm -rf /usr/local/var/homebrew/locks
 # Update homebrew cant disable this yet, -y and --quiet do nothing
-brew update-reset
+#brew update-reset
 
 # Install Miniconda
 curl -s -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
@@ -40,7 +40,7 @@ export INSTALL_OPENMM_PREREQUISITES=true
 if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     # Install OpenMM dependencies that can't be installed through
     # conda package manager (doxygen + CUDA)
-    brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/5b680fb58fedfb00cd07a7f69f5a621bb9240f3b/Formula/doxygen.rb
+    #brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/5b680fb58fedfb00cd07a7f69f5a621bb9240f3b/Formula/doxygen.rb
 
     # Install CUDA
     # Use solution from https://github.com/JuliaGPU/CUDAapi.jl/pull/81/files
@@ -81,7 +81,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
         xstring fncychap tabulary capt-of eqparbox environ trimspaces \
         varwidth needspace
     # Clean up brew
-    brew cleanup -s
+    #brew cleanup -s
 fi;
 
 # Build packages
