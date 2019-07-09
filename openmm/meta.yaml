@@ -41,7 +41,7 @@ requirements:
     # on osx, need to install doxygen manually
     - doxygen   [not osx]
     # for building docs
-    - sphinx ==1.8.4
+    - sphinx ==1.8.5
     - sphinxcontrib-bibtex
     - sphinxcontrib-lunrsearch >=0.3
     - sphinxcontrib-autodoc_doxygen

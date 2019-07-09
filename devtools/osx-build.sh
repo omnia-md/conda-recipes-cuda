@@ -52,7 +52,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     installers["9.2"]="https://developer.nvidia.com/compute/cuda/9.2/Prod/local_installers/cuda_9.2.64_mac"
     installers["10.0"]="https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_mac"
     installers["10.1"]="https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.105_mac.dmg"
-    installer=${installers[$CUDA]}
+    installer=${installers[$CUDA_VERSION]}
     wget -O cuda.dmg "$installer"
 
     brew install p7zip
