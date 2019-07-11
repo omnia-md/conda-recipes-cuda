@@ -46,7 +46,7 @@ requirements:
     - sphinxcontrib-serializinghtml
     - sphinxcontrib-bibtex
     - sphinxcontrib-lunrsearch >=0.3
-    - sphinxcontrib-autodoc-doxygen
+    - sphinxcontrib-autodoc_doxygen
     - lxml
     - numpy
     # Get clang from conda-forge
