@@ -63,8 +63,7 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     sudo gtar -x --skip-old-files -f CUDAMacOSXInstaller/CUDAMacOSXInstaller.app/Contents/Resources/payload/cuda_mac_installer_tk.tar.gz -C /
 
     # Install latex.
-    #export PATH="/usr/texbin:${PATH}:/usr/bin"
-    export PATH=“/Library/TeX/texbin/:$PATH”
+    export PATH="/Library/TeX/texbin/:/usr/texbin:${PATH}:/usr/bin"
     #brew cask install --no-quarantine basictex
     #mkdir -p /usr/texbin
     # Path based on https://github.com/caskroom/homebrew-cask/blob/master/Casks/basictex.rb location

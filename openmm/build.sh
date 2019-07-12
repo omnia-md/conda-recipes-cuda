@@ -87,9 +87,9 @@ export LC_ALL=C
 locale -a
 
 # Build PDF manuals
-make -j$CPU_COUNT sphinxpdf
-mv sphinx-docs/userguide/latex/*.pdf $PREFIX/docs/openmm/
-mv sphinx-docs/developerguide/latex/*.pdf $PREFIX/docs/openmm/
+#make -j$CPU_COUNT sphinxpdf
+#mv sphinx-docs/userguide/latex/*.pdf $PREFIX/docs/openmm/
+#mv sphinx-docs/developerguide/latex/*.pdf $PREFIX/docs/openmm/
 
 # Put examples into an appropriate subdirectory.
 mkdir $PREFIX/share/openmm/
