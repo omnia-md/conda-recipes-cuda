@@ -63,25 +63,25 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     sudo gtar -x --skip-old-files -f CUDAMacOSXInstaller/CUDAMacOSXInstaller.app/Contents/Resources/payload/cuda_mac_installer_tk.tar.gz -C /
 
     # Install latex.
-    echo $PATH
-    export PATH="/Library/TeX/texbin/:/usr/texbin:$PATH:/usr/bin"
-    echo $PATH
-    #brew cask install --no-quarantine basictex
-    #mkdir -p /usr/texbin
-    # Path based on https://github.com/caskroom/homebrew-cask/blob/master/Casks/basictex.rb location
-    # .../texlive/{YEAR}basic/bin/{ARCH}/{Location of actual binaries}
-    # Sym link them to the /usr/texbin folder in the path
-    export TLREPO=http://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet
-    #ln -s /usr/local/texlive/*basic/bin/*/* /usr/texbin/
-    sudo tlmgr --repository=$TLREPO update --self
-    sleep 5
-    sudo tlmgr --persistent-downloads --repository=$TLREPO install \
-        titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring \
-        fncychap tabulary capt-of eqparbox environ trimspaces \
-        cmap fancybox titlesec framed fancyvrb threeparttable \
-        mdwtools wrapfig parskip upquote float multirow hyphenat caption \
-        xstring fncychap tabulary capt-of eqparbox environ trimspaces \
-        varwidth needspace
+#    echo $PATH
+#    export PATH="/Library/TeX/texbin/:/usr/texbin:$PATH:/usr/bin"
+#    echo $PATH
+#    #brew cask install --no-quarantine basictex
+#    #mkdir -p /usr/texbin
+#    # Path based on https://github.com/caskroom/homebrew-cask/blob/master/Casks/basictex.rb location
+#    # .../texlive/{YEAR}basic/bin/{ARCH}/{Location of actual binaries}
+#    # Sym link them to the /usr/texbin folder in the path
+#    export TLREPO=http://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet
+#    #ln -s /usr/local/texlive/*basic/bin/*/* /usr/texbin/
+#    sudo tlmgr --repository=$TLREPO update --self
+#    sleep 5
+#    sudo tlmgr --persistent-downloads --repository=$TLREPO install \
+#        titlesec framed threeparttable wrapfig multirow collection-fontsrecommended hyphenat xstring \
+#        fncychap tabulary capt-of eqparbox environ trimspaces \
+#        cmap fancybox titlesec framed fancyvrb threeparttable \
+#        mdwtools wrapfig parskip upquote float multirow hyphenat caption \
+#        xstring fncychap tabulary capt-of eqparbox environ trimspaces \
+#        varwidth needspace
     # Clean up brew
     #brew cleanup -s
 fi;
