@@ -7,7 +7,7 @@ fi
 
 #!/bin/bash
 set -e -x
-export MACOSX_DEPLOYMENT_TARGET="10.9"
+export MACOSX_DEPLOYMENT_TARGET="10.13"
 # Clear existing locks
 #rm -rf /usr/local/var/homebrew/locks
 # Update homebrew cant disable this yet, -y and --quiet do nothing
@@ -61,12 +61,6 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
 
     brew install gnu-tar
     sudo gtar -x --skip-old-files -f CUDAMacOSXInstaller/CUDAMacOSXInstaller.app/Contents/Resources/payload/cuda_mac_installer_tk.tar.gz -C /
-
-    # DEBUG
-    ls -ltr /
-    ls -ltr /Developer/
-    ls -ltr /Developer/NVIDIA/
-
 
     # Install latex.
 #    echo $PATH

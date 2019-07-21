@@ -5,6 +5,8 @@ CMAKE_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_TESTING=OFF"
 # Ensure we build a release
 CMAKE_FLAGS+=" -DCMAKE_BUILD_TYPE=Release"
 
+ls -ltr /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs
+
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     #
     # For Docker build
@@ -41,7 +43,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     export MACOSX_DEPLOYMENT_TARGET="10.9"
     CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
     CMAKE_FLAGS+=" -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
-    CMAKE_FLAGS+=" -DCUDA_TOOLKIT_ROOT_DIR=/Developer/NVIDIA/CUDA-${CUDA_VERSION}"
+    CMAKE_FLAGS+=" -DCUDA_TOOLKIT_ROOT_DIR=/Developer/NVIDIA/CUDA-${CUDA_VERSION}/"
+    CMAKE_FLAGS+=" -DCUDA_LIBRARY_DIR=/usr/local/cuda/lib" # DEBUG
     CMAKE_FLAGS+=" -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX${MACOSX_DEPLOYMENT_TARGET}.sdk"
 fi
 
@@ -57,6 +60,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     CMAKE_FLAGS+=" -DFFTW_LIBRARY=$PREFIX/lib/libfftw3f.dylib"
     CMAKE_FLAGS+=" -DFFTW_THREADS_LIBRARY=$PREFIX/lib/libfftw3f_threads.dylib"
 fi
+
+# DEBUG
+echo "CMAKE_FLAGS:"
+echo $CMAKE_FLAGS
 
 # Build in subdirectory and install.
 mkdir build
@@ -82,9 +89,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
 
 # DEBUG: Needed for latest sphinx
-locale -a
-export LC_ALL=C
-locale -a
+#locale -a
+#export LC_ALL=C
+#locale -a
 
 # Build PDF manuals
 #make -j$CPU_COUNT sphinxpdf
