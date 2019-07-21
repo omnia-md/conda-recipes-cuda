@@ -62,6 +62,12 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     brew install gnu-tar
     sudo gtar -x --skip-old-files -f CUDAMacOSXInstaller/CUDAMacOSXInstaller.app/Contents/Resources/payload/cuda_mac_installer_tk.tar.gz -C /
 
+    # DEBUG
+    ls -ltr /
+    ls -ltr /Developer/
+    ls -ltr /Developer/NVIDIA/
+
+
     # Install latex.
 #    echo $PATH
 #    export PATH="/Library/TeX/texbin/:/usr/texbin:$PATH:/usr/bin"
