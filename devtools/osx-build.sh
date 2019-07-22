@@ -61,9 +61,9 @@ if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
 
     brew install gnu-tar
     # Install CUDA driver (which contains libcuda.so)
-    sudo gtar -x --overwrite -f CUDAMacOSXInstaller/CUDAMacOSXInstaller.app/Contents/Resources/payload/cuda_mac_installer_drv.tar.gz -C /
-    # Install CUDA toolkit (formerly used --skip-old-files)
-    sudo gtar -x --overwrite -f CUDAMacOSXInstaller/CUDAMacOSXInstaller.app/Contents/Resources/payload/cuda_mac_installer_tk.tar.gz -C /
+    sudo gtar -x --skip-old-files --exclude='*uninstall*' -f CUDAMacOSXInstaller/CUDAMacOSXInstaller.app/Contents/Resources/payload/cuda_mac_installer_drv.tar.gz -C /
+    # Install CUDA toolkit
+    sudo gtar -x --skip-old-files --exclude='*uninstall*' -f CUDAMacOSXInstaller/CUDAMacOSXInstaller.app/Contents/Resources/payload/cuda_mac_installer_tk.tar.gz -C /
 
     # Install latex.
 #    echo $PATH
