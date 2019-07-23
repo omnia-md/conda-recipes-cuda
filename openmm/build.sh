@@ -38,10 +38,12 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # conda-build MACOSX_DEPLOYMENT_TARGET must be exported as an environment variable to override 10.7 default
     # cc: https://github.com/conda/conda-build/pull/1561
-    export MACOSX_DEPLOYMENT_TARGET="10.9"
+    export MACOSX_DEPLOYMENT_TARGET="10.13"
     CMAKE_FLAGS+=" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
     CMAKE_FLAGS+=" -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
-    CMAKE_FLAGS+=" -DCUDA_TOOLKIT_ROOT_DIR=/Developer/NVIDIA/CUDA-${CUDA_VERSION}"
+    CMAKE_FLAGS+=" -DCUDA_TOOLKIT_ROOT_DIR=/Developer/NVIDIA/CUDA-${CUDA_VERSION}/"
+    CMAKE_FLAGS+=" -DCUDA_LIBRARY_DIR=/usr/local/cuda/lib" # DEBUG
+    #CMAKE_FLAGS+=" -DCUDA_CUDA_LIBRARY=/usr/local/cuda/lib/libcudart.dylib" # DEBUG
     CMAKE_FLAGS+=" -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX${MACOSX_DEPLOYMENT_TARGET}.sdk"
 fi
 
@@ -57,6 +59,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     CMAKE_FLAGS+=" -DFFTW_LIBRARY=$PREFIX/lib/libfftw3f.dylib"
     CMAKE_FLAGS+=" -DFFTW_THREADS_LIBRARY=$PREFIX/lib/libfftw3f_threads.dylib"
 fi
+
+# DEBUG
+echo "CMAKE_FLAGS:"
+echo $CMAKE_FLAGS
 
 # Build in subdirectory and install.
 mkdir build
@@ -82,9 +88,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
 
 # DEBUG: Needed for latest sphinx
-locale -a
-export LC_ALL=C
-locale -a
+#locale -a
+#export LC_ALL=C
+#locale -a
 
 # Build PDF manuals
 #make -j$CPU_COUNT sphinxpdf
