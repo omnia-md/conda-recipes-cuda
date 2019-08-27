@@ -4,7 +4,7 @@ package:
 
 source:
   git_url: https://github.com/pandegroup/openmm.git
-  git_tag: b9a1bee
+  git_tag: b71e92d
 
   patches:
     - silent-cmake.patch
@@ -12,11 +12,11 @@ source:
     - silent-latexpdf.patch
 
 extra:
-  upload: betacuda{{ CUDA_SHORT_VERSION }}{{ ",beta" if CUDA_SHORT_VERSION == "101" else ""}}
+  upload: rccuda{{ CUDA_SHORT_VERSION }}{{ ",rc" if CUDA_SHORT_VERSION == "101" else ""}}
   force_upload: False
 
 build:
-  number: 1
+  number: 0
   skip: True # [win]
   detect_binary_files_with_prefix: False
   string: py{{py}}_cuda{{ CUDA_SHORT_VERSION }}_beta_1
