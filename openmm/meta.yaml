@@ -3,8 +3,8 @@ package:
   version: 7.4.0
 
 source:
-  git_url: https://github.com/pandegroup/openmm.git
-  git_tag: b71e92d
+  git_url: https://github.com/peastman/openmm.git
+  git_tag: debug
 
   patches:
     - silent-cmake.patch
