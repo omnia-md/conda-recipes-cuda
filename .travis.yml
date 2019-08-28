@@ -13,8 +13,8 @@ addons:
   homebrew:
     casks:
     - basictex
-    packages:
-    - doxygen=1.8.14
+#    packages:
+#    - doxygen
     update: true
 
 #cache:
