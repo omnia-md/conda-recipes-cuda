@@ -40,7 +40,7 @@ export INSTALL_OPENMM_PREREQUISITES=true
 if [ "$INSTALL_OPENMM_PREREQUISITES" = true ] ; then
     # Install OpenMM dependencies that can't be installed through
     # conda package manager (doxygen + CUDA)
-    #brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/5b680fb58fedfb00cd07a7f69f5a621bb9240f3b/Formula/doxygen.rb
+    brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/5b680fb58fedfb00cd07a7f69f5a621bb9240f3b/Formula/doxygen.rb
 
     # Install CUDA
     # Use solution from https://github.com/JuliaGPU/CUDAapi.jl/pull/81/files
