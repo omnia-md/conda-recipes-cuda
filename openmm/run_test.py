@@ -7,4 +7,4 @@ from simtk import openmm
 assert openmm.Platform.getOpenMMVersion() == '7.4.1', "openmm.Platform.getOpenMMVersion() = %s" % openmm.Platform.getOpenMMVersion()
 
 # Check git hash
-assert openmm.version.git_revision == '989a9912c8281f3f85d1ae89ef492f9a65c70fab', "openmm.version.git_revision = %s" % openmm.version.git_revision
+assert openmm.version.git_revision == '068f120206160d5151c9af0baf810384bba8d052', "openmm.version.git_revision = %s" % openmm.version.git_revision
