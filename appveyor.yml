@@ -2,7 +2,7 @@ os: Visual Studio 2015
 
 branches:
   only:
-  - master
+    - master
 
 environment:
   global:
@@ -47,15 +47,15 @@ environment:
     - PYTHON: "C:\\Miniconda3-x64"
       CONDA_PY: "37"
       PYTHON_VERSION: "3.7.x"
-      PYTHON_ARCH: "67"
+      PYTHON_ARCH: "64"
 
 install:
   - cmd: call .\\devtools\\appveyor\\install_cuda.cmd
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - conda update -yq --all
-  - conda install -yq conda==4.3.34 conda-build==2.1.17 jinja2 anaconda-client
   - conda config --add channels omnia
   - conda config --add channels conda-forge
+  - conda install -yq conda==4.3.34 conda-build==2.1.17 jinja2 anaconda-client
   - powershell .\\devtools\\appveyor\\missing-headers.ps1
   # conda-build for some inane reason, effectively puts C:\cygwin\bin at the
   # front of the PATH, ahead of everything else, regardless. See
