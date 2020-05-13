@@ -56,6 +56,12 @@ environment:
       PYTHON_VERSION_SHORT: "3.7"
       PYTHON_ARCH: "64"
 
+    - PYTHON: "C:\\Miniconda3-x64"
+      CONDA_PY: "38"
+      PYTHON_VERSION: "3.8.x"
+      PYTHON_VERSION_SHORT: "3.8"
+      PYTHON_ARCH: "64"
+
 install:
   - cmd: call .\\devtools\\appveyor\\install_cuda.cmd
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
