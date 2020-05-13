@@ -17,36 +17,43 @@ environment:
     - PYTHON: "C:\\Miniconda"
       CONDA_PY: "27"
       PYTHON_VERSION: "2.7.x"
+      PYTHON_VERSION_SHORT: "2.7"
       PYTHON_ARCH: "32"
 
     - PYTHON: "C:\\Miniconda-x64"
       CONDA_PY: "27"
       PYTHON_VERSION: "2.7.x"
+      PYTHON_VERSION_SHORT: "2.7"
       PYTHON_ARCH: "64"
 
     - PYTHON: "C:\\Miniconda3"
       CONDA_PY: "35"
       PYTHON_VERSION: "3.5.x"
+      PYTHON_VERSION_SHORT: "3.5"
       PYTHON_ARCH: "32"
 
     - PYTHON: "C:\\Miniconda3-x64"
       CONDA_PY: "35"
       PYTHON_VERSION: "3.5.x"
+      PYTHON_VERSION_SHORT: "3.5"
       PYTHON_ARCH: "64"
 
     - PYTHON: "C:\\Miniconda3"
       CONDA_PY: "35"
       PYTHON_VERSION: "3.5.x"
+      PYTHON_VERSION_SHORT: "3.5"
       PYTHON_ARCH: "32"
 
     - PYTHON: "C:\\Miniconda3-x64"
       CONDA_PY: "36"
       PYTHON_VERSION: "3.6.x"
+      PYTHON_VERSION_SHORT: "3.6"
       PYTHON_ARCH: "64"
 
     - PYTHON: "C:\\Miniconda3-x64"
       CONDA_PY: "37"
       PYTHON_VERSION: "3.7.x"
+      PYTHON_VERSION_SHORT: "3.7"
       PYTHON_ARCH: "64"
 
 install:
@@ -55,7 +62,7 @@ install:
   - conda update -yq --all
   - conda config --add channels omnia
   - conda config --add channels conda-forge
-  - conda install -yq conda==4.3.34 conda-build==2.1.17 jinja2 anaconda-client
+  - conda install -yq conda==4.3.34 conda-build==2.1.17 jinja2 anaconda-client python=%PYTHON_VERSION_SHORT%
   - powershell .\\devtools\\appveyor\\missing-headers.ps1
   # conda-build for some inane reason, effectively puts C:\cygwin\bin at the
   # front of the PATH, ahead of everything else, regardless. See
