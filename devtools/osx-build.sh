@@ -15,8 +15,9 @@ export MACOSX_DEPLOYMENT_TARGET="10.13"
 
 # Install Miniconda
 curl -s -O https://repo.continuum.io/miniconda/Miniconda3-4.6.14-MacOSX-x86_64.sh;
-bash Miniconda3-4.6.14-MacOSX-x86_64.sh -b -p $HOME/anaconda;
-export PATH=$HOME/anaconda/bin:$PATH;
+export MINICONDA="$HOME/miniconda";
+bash Miniconda3-4.6.14-MacOSX-x86_64.sh -b -p $MINICONDA;
+export PATH="$MINICONDA/bin:$PATH";
 conda config --add channels conda-forge;
 conda config --add channels omnia;
 conda install -yq conda\<=4.3.34;
