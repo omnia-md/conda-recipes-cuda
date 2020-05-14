@@ -1,6 +1,6 @@
 # upgrade Bash to version 4, for associative array support
 if [[ ${BASH_VERSINFO[0]} < 4 ]]; then
-    brew install bash
+    brew install bash wget
     /usr/local/bin/bash -uxe $0
     exit $?
 fi
@@ -14,7 +14,7 @@ export MACOSX_DEPLOYMENT_TARGET="10.13"
 #brew update-reset
 
 # Install Miniconda
-curl -s -O https://repo.continuum.io/miniconda/Miniconda3-4.6.14-MacOSX-x86_64.sh;
+wget https://repo.continuum.io/miniconda/Miniconda3-4.6.14-MacOSX-x86_64.sh;
 export MINICONDA="$HOME/miniconda";
 bash Miniconda3-4.6.14-MacOSX-x86_64.sh -b -p $MINICONDA;
 export PATH="$MINICONDA/bin:$PATH";
