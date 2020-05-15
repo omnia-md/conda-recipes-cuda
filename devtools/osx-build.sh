@@ -1,4 +1,4 @@
-chec# upgrade Bash to version 4, for associative array support
+# upgrade Bash to version 4, for associative array support
 if [[ ${BASH_VERSINFO[0]} < 4 ]]; then
     brew install bash wget
     /usr/local/bin/bash -uxe $0
