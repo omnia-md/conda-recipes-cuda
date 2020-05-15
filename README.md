@@ -1,26 +1,10 @@
 * Travis-CI `linux`and `osx` builds [![Travis Build Status](https://travis-ci.org/omnia-md/conda-recipes-cuda.svg?branch=master)](https://travis-ci.org/omnia-md/conda-recipes-cuda)
 * Appveyor-CI `windows` builds [![Build status](https://ci.appveyor.com/api/projects/status/apspu0x7oy0fop5h/branch/master?svg=true)](https://ci.appveyor.com/project/jchodera/conda-recipes-cuda/branch/master)
 
-omnia-md/conda-dev-recipes
---------------------------
+omnia-md/conda-recipes-cuda
+---------------------------
 
-The development recipes here create conda packages for scientific and numerical software
-components associated with the Omnia project. The packages built from these
-recipes are shared with the community on [anaconda.org](https://anaconda.org/omnia).
-
-These are development recipes for building packages from the bleeding-edge latest source
-versions of selected packages.
-
-Packages are built twice daily by [the Travis CI cron trigger](http://traviscron.pythonanywhere.com/).
-
-To install a development package
-```
-# Add the omnia and conda-forge
-$ conda config --add channels omnia --add channels conda-forge
-
-conda install openmm-dev
-```
-
+This repository contains recipes for creating the CUDA-enabled conda packages for OpenMM.
 
 ### Supported versions
 
